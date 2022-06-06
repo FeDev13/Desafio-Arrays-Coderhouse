@@ -2,11 +2,11 @@
 function Producto(id, nombre, precio, stock) {
   this.id = id;
   this.nombre = nombre;
-  this.precio = precio;
+  this.precio = parseFloat(precio);
   this.stock = stock;
   //metodo
-  this.valorPrecio = function () {
-    console.log("el producto vale" + this.precio);
+  this.descuentoEnEfectivo = function () {
+    this.precio = this.precio * 0.2;
   };
 }
 
