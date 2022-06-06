@@ -22,7 +22,7 @@ console.log(producto3);
 //funcion iteradora sobre un objeto
 
 function hayStock(obj) {
-  while (producto1.nombre === "crema limpiadora" && producto1.id === 8745) {
+  while (obj.nombre !== "" && obj.id < 8748) {
     for (const prop in obj) {
       if (obj.stock === true) {
         return "en stock";
