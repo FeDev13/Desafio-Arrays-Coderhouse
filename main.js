@@ -4,10 +4,6 @@ function Producto(id, nombre, precio, stock) {
   this.nombre = nombre;
   this.precio = parseFloat(precio);
   this.stock = stock;
-  //metodo
-  this.descuentoEnEfectivo = function () {
-    this.precio = this.precio * 0.2;
-  };
 }
 
 //se instancian los objetos nuevos
@@ -22,12 +18,16 @@ console.log(producto3);
 //funcion iteradora sobre un objeto
 
 function hayStock(obj) {
+  let descuentoEnEfectivo = obj.precio * 0.2;
   while (obj.nombre !== "" && obj.id < 8748) {
     for (const prop in obj) {
-      if (obj.stock === true) {
-        return "en stock";
+      if (
+        obj.nombre === "crema limpiadora" ||
+        obj.nombre === "envase retornable"
+      ) {
+        return descuentoEnEfectivo;
       } else {
-        return "sin stock";
+        return "precio normal";
       }
     }
   }
