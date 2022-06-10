@@ -1,35 +1,34 @@
-//funcion constructura
-function Producto(id, nombre, precio, stock) {
-  this.id = id;
-  this.nombre = nombre;
-  this.precio = parseFloat(precio);
-  this.stock = stock;
-}
+//array
+const catalogo = [
+  { id: 200, nombre: "mascarilla", categoria: "cosmetica" },
+  { id: 201, nombre: "pinza", categoria: "materiales" },
+  { id: 202, nombre: "envase", categoria: "materiales" },
+  { id: 203, nombre: "crema", categoria: "cosmetica" },
+  { id: 204, nombre: "locion", categoria: "cosmetica" },
+  { id: 205, nombre: "bolsa", categoria: "varios" },
+];
+const catalogoVacio = [];
 
-//se instancian los objetos nuevos
+//entrada del usuario
+let ingresaCategoria = prompt("categoria del producto");
 
-const producto1 = new Producto(8745, "crema limpiadora", 123, false);
-console.log(producto1);
-const producto2 = new Producto(8746, "envase retornable", 130, true);
-console.log(producto2);
-const producto3 = new Producto(8747, "mascarilla", 140, true);
-console.log(producto3);
+//metodo filter sobre los objetos del array
 
-//funcion iteradora sobre un objeto
+const nuevoCatalogo = catalogo.filter(
+  (elementos) => elementos.categoria === ingresaCategoria
+);
+catalogoVacio.push(nuevoCatalogo);
+console.log(catalogoVacio);
 
-function hayStock(obj) {
-  let descuentoEnEfectivo = obj.precio * 0.2;
-  while (obj.nombre !== "" && obj.id < 8748) {
-    for (const prop in obj) {
-      if (
-        obj.nombre === "crema limpiadora" ||
-        obj.nombre === "envase retornable"
-      ) {
-        return descuentoEnEfectivo;
-      } else {
-        return "precio normal";
-      }
+//funcion optativa usando for in y condicional
+
+function agregarArray(arr) {
+  let arrayVacio = [];
+  for (let obj in arr) {
+    if (arr[obj].id > 203) {
+      arrayVacio.push(obj);
     }
   }
+  return arrayVacio;
 }
-console.log(hayStock(producto1));
+console.log(agregarArray(catalogo));
