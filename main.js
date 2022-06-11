@@ -1,4 +1,4 @@
-//array
+//arrays
 const catalogo = [
   { id: 200, nombre: "mascarilla", categoria: "cosmetica" },
   { id: 201, nombre: "pinza", categoria: "materiales" },
@@ -9,16 +9,16 @@ const catalogo = [
 ];
 const catalogoVacio = [];
 
-//entrada del usuario
-let ingresaCategoria = prompt("categoria del producto");
+//funcion que filtra catalogo y agrega al vacio
+function crearCatalogo() {
+  let ingresaCategoria = prompt("categoria del producto");
 
-//metodo filter sobre los objetos del array
-
-const nuevoCatalogo = catalogo.filter(
-  (elementos) => elementos.categoria === ingresaCategoria
-);
-catalogoVacio.push(nuevoCatalogo);
-console.log(catalogoVacio);
+  const nuevoCatalogo = catalogo.filter(
+    (elementos) => elementos.categoria === ingresaCategoria
+  );
+  catalogoVacio.push(nuevoCatalogo);
+  console.log(catalogoVacio);
+}
 
 //funcion optativa usando for in y condicional
 
