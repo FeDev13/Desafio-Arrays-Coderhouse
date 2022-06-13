@@ -9,6 +9,8 @@ const catalogo = [
 ];
 const catalogoVacio = [];
 
+crearCatalogo();
+
 //funcion que filtra catalogo y agrega al vacio
 function crearCatalogo() {
   let ingresaCategoria = prompt("categoria del producto");
@@ -22,7 +24,7 @@ function crearCatalogo() {
 
 //funcion optativa usando for in y condicional
 
-function agregarArray(arr) {
+/* function agregarArray(arr) {
   let arrayVacio = [];
   for (let obj in arr) {
     if (arr[obj].id > 203) {
@@ -31,4 +33,4 @@ function agregarArray(arr) {
   }
   return arrayVacio;
 }
-console.log(agregarArray(catalogo));
+console.log(agregarArray(catalogo)); */
