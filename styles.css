@@ -1,4 +1,18 @@
-.cart {
-    width: 1000px;
-    padding: auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 50px;
+}
+
+  .div-styled {
+  border: solid;
+  border-radius: 5px;
+  margin: 200px;
+  padding: 10px;
+              }
+.input {
+margin-top: 150px;
 }
