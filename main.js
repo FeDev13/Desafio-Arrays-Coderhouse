@@ -1,21 +1,33 @@
+let item1 = ["mascarilla", "elemento", 200, "cosmetica"];
+let item2 = ["mascarilla", "elemento", 300, "materiales"];
+let item3 = ["mascarilla", "elemento", 154, "varios"];
+let item4 = ["mascarilla", "elemento", 190, "cosmetica"];
+
 //array
 const catalogo = [
-  { id: 200, nombre: "mascarilla", categoria: "cosmetica" },
-  { id: 201, nombre: "pinza", categoria: "materiales" },
-  { id: 202, nombre: "envase", categoria: "materiales" },
-  { id: 203, nombre: "crema", categoria: "cosmetica" },
-  { id: 204, nombre: "locion", categoria: "cosmetica" },
-  { id: 205, nombre: "bolsa", categoria: "varios" },
+  { id: 200, nombre: "mascarilla", categoria: "cosmetica", stock: "true" },
+  { id: 201, nombre: "pinza", categoria: "materiales", stock: "true" },
+  { id: 202, nombre: "envase", categoria: "materiales", stock: "true" },
+  { id: 203, nombre: "crema", categoria: "cosmetica", stock: "false" },
+  { id: 204, nombre: "locion", categoria: "cosmetica", stock: "false" },
+  { id: 205, nombre: "bolsa", categoria: "varios", stock: "true" },
 ];
+//selectores
 const contenedor = document.querySelector("#contenedor");
+const tarjetasProductos = document.querySelector(".prodHolder");
 
-// seleccion de boton
+// seleccion de boton buscar
 const addButton = document.getElementById("addButton");
 
-// evento al hacer click
+//seleccion de boton refresh
+const refresh = document.getElementsByClassName("bi bi-arrow-clockwise");
+
+// evento al hacer click en buscar
 addButton.addEventListener("click", buscador);
 
-//Funcion
+//evento al hacer click en refresh
+
+//Funciones
 function buscador() {
   let input = document.getElementById("submit").value;
   for (const item of catalogo) {
@@ -33,6 +45,7 @@ function buscador() {
       </div>
     </div>`;
       contenedor.innerHTML += newHtml;
+      break;
     } else if (input !== item.nombre) {
       const newDiv = document.createElement("div"); //crea elemento div
       newDiv.classList.add("div-styled"); // estilos css
@@ -43,3 +56,26 @@ function buscador() {
     }
   }
 }
+function crearTarjeta([img, nombre, descripcion, precio, categoria]) {
+  let newCard = `<div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <img src = "${img}">
+        <h5 class="card-title">${nombre}</h5>
+        <p class="card-text">
+          ${descripcion}
+        </p>
+        <p class = "precio">${precio}</p>
+        <p class ="categoria">${categoria}</p>
+        <a href="#" class="btn btn-primary">
+          Comprar
+        </a>
+      </div>
+    </div>`;
+  tarjetasProductos.innerHTML += newCard;
+}
+crearTarjeta(item1);
+crearTarjeta(item2);
+crearTarjeta(item3);
+crearTarjeta(item4);
+crearTarjeta(item1);
+crearTarjeta(item2);
