@@ -54,7 +54,7 @@ catalogo.forEach((producto) => {
   `;
   contenedor.appendChild(div);
 
-  const boton = document.getElementsByClassName("botonAgregar")[0];
+  const boton = document.getElementById("${producto.id}");
 
   boton.addEventListener("click", () => {
     agregarAlCarrito(producto.id);
@@ -66,17 +66,3 @@ const agregarAlCarrito = (productoId) => {
   carritoVacio.push(item);
   console.log(carritoVacio);
 };
-
-/* const carritoUpdate = () => {
-  carritoVacio.forEach((prod) => {});
-  let div = document.createElement("div");
-  div.className = "producto-en-carrito";
-  div.innerHTML = `
-  <h3>${prod.nombre}</h3>
-  <p>Precio: $ ${prod.precio}</p>
-  <p>Cantidad: <span id="cantidad"> ${prod.cantidad}</span></p>
-  <button onclick ="eliminarDelCarrito(${prod.id})" class="botonEliminar"> Agregar <i class="fas fa trash-alt"></button>
-  `;
-  carritoContainer.appendChild(div);
-};
- */

@@ -2,20 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
-}
+  }
 body {
-  margin: 50px;
+  margin: 0px;
+  background-color: #ffb3d9;
+}
+#navigation{
+  background-color: #ffb3d9;
 }
 
+#contenedorProductos {
+  background-color: #ffb3d9;
+}
 .productoCard {
   max-width: 20%;
   margin: 10px;
   padding: 10px;
   margin-bottom: 20px;
+  background-color: palevioletred;
+  border-radius: 5px;
+  box-shadow: black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .input {
 margin-top: 150px;
+background-color: #ffb3d9;
 }
 .productoEnCarrito {
   border-left: 5px solid lightblue;
@@ -25,4 +39,11 @@ margin-top: 150px;
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+}
+.botonAgregar {
+  border-radius: 7px;
+  background-color: pink;
+}
+.div{
+  margin: 300px;
 }
