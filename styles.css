@@ -4,7 +4,7 @@
   box-sizing: border-box;
   }
 body {
-  margin: 0px;
+  margin: px;
   background-color: #ffb3d9;
 }
 #navigation{
@@ -46,4 +46,14 @@ background-color: #ffb3d9;
 }
 .div{
   margin: 300px;
+}
+.carrito-contenedor{
+  margin: 8px;
+  width: 30px;
+}
+.panel {
+  margin: 40px;
+}
+.verCarrito {
+  display: block;
 }
