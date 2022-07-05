@@ -1,66 +1,64 @@
 const productosLista = document.getElementById("contenedorProductos");
-const productoscarrito = document.getElementById("carrito");
+const productoscarrito = document.querySelector(".carrito-main");
 
 const catalogo = [
   {
     Id: 1,
     Nombre: "Mascarilla",
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0doS9lRm40raQSBnQLQSHcCxHXXdT2cR1Ag&usqp=CAU",
-    Categoria: "cosmetica",
+    Foto: "https://i.ibb.co/NNmjrDY/IMG-20210603-221712421.jpg",
+    Categoria: "Cosmetica",
     Stock: 13,
     Precio: 400,
   },
   {
     Id: 2,
-    Nombre: "Pinza",
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS--Cr7SOGN9cAgBF_H2treVeXUv163cEheVA&usqp=CAU",
-    Categoria: "materiales",
+    Nombre: "Serum lifting tensor",
+    Foto: "https://i.ibb.co/f8zHrgf/14-4-2021-10-36-26-p-m.png",
+    Categoria: "Materiales",
     Stock: 12,
     Precio: 550,
   },
   {
     Id: 3,
-    Nombre: "Envase",
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkxznW_aCwLPtWdnuVJuvE7igkbwGP_vNchg&usqp=CAU",
-    Categoria: "materiales",
+    Nombre: "Serum con Dmae",
+    Foto: "https://i.ibb.co/Wgh19g8/14-4-2021-10-04-24-p-m.png",
+    Categoria: "Materiales",
     Stock: 29,
     Precio: 800,
   },
   {
     Id: 4,
-    Nombre: "Crema",
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2viv36rwbueswmDIR58rw1oJd02KfzbuUA&usqp=CAU",
-    Categoria: "cosmetica",
+    Nombre: "Crema de limpieza",
+    Foto: "https://i.ibb.co/NZbDX9r/IMG-20210703-163356577.jpg",
+    Categoria: "Cosmetica",
     Stock: 5,
     Precio: 700,
   },
   {
     Id: 5,
-    Nombre: "Locion",
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlXgfPWFAyWlxPOaL-mZkXpucu3UNr-5D4Cg&usqp=CAU",
-    Categoria: "cosmetica",
+    Nombre: "Locion hidratante",
+    Foto: "https://i.ibb.co/jJbjQ70/IMG-20210703-163402020.jpg",
+    Categoria: "Cosmetica",
     Stock: 30,
     Precio: 220,
   },
   {
     Id: 6,
-    Foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNQjoY5zC0qJhQU4ZMieEp-_2G84d5i9AT8w&usqp=CAU",
-    Nombre: "Bolsa",
-    Categoria: "varios",
+    Nombre: "Crema acne balance",
+    Foto: "https://i.ibb.co/9hpYwVP/acne-balance-removebg-preview.png",
+    Categoria: "Varios",
     Stock: 10,
     Precio: 480,
   },
 ];
 
 //elemento HTML dinamico
-const nuevoarray = catalogo.find((producto) => producto.Id === 1);
-console.log(nuevoarray);
-const renderCard = () => {
+const nuevaCard = () => {
   let productosPanelVista = "";
   catalogo.forEach((producto) => {
     {
       productosPanelVista += `<div class="col-12 mb-2 col-md-4 col-sm-4 panel">
-            <div class="card" style="background-color:pink">
+            <div class="card panel1" style="background-color:#ffe6e6">
             <div class="card-body">
             <img id="fotoProducto" src="${producto.Foto}" class="card-img-top">
             <h5 id="tituloProducto">${producto.Nombre}</h5>
@@ -76,7 +74,7 @@ const renderCard = () => {
   document.getElementById("contenedorProductos").innerHTML =
     productosPanelVista;
 };
-renderCard();
+nuevaCard();
 
 //evento click para agregar producto
 productosLista.addEventListener("click", (e) => {
@@ -89,19 +87,24 @@ productosLista.addEventListener("click", (e) => {
 let carrito = [];
 
 // localStorage
-document.addEventListener("DOMContentLoaded", () => {
+/* document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
-    renderCarrito();
+    mostrarCarrito();
   }
-});
+}); */
 
 //se agrega producto al carrito
 const agregarProductoCarrito = (producto, id) => {
   console.log(producto);
   let productoEncontrado = catalogo.find((producto) => producto.Id === id);
   let productoCarrito = carrito.find((producto) => producto.Id === id);
-  if (productoCarrito === undefined) {
+  if (carrito.some((producto) => producto.Id === id)) {
+    const alertaBoton = document.getElementById("mybtn");
+    alertaBoton.addEventListener("click", () => {
+      Swal.fire("Producto ya agregado");
+    });
+  } else if (productoCarrito === undefined) {
     carrito.push({
       Id: id,
       Nombre: producto.querySelector("#tituloProducto").textContent,
@@ -111,11 +114,6 @@ const agregarProductoCarrito = (producto, id) => {
       ),
       Foto: producto.querySelector("#fotoProducto").getAttribute("src"),
       Cantidad: 1,
-    });
-
-    const alertaBoton = document.getElementById("mybtn");
-    alertaBoton.addEventListener("click", () => {
-      Swal.fire("Producto agregado");
     });
   } else {
     const prodIndex = carrito.findIndex((prod) => prod.Id === Number(id));
@@ -130,7 +128,7 @@ const agregarProductoCarrito = (producto, id) => {
   console.log(carrito);
 };
 
-//muestra el carrito
+///muestra el carrito
 const mostrarCarrito = () => {
   productoscarrito.classList.toggle("verCarrito");
   updateCarrito();
@@ -154,7 +152,7 @@ const updateCarrito = () => {
             </div>
             `;
     }
-    document.getElementById("carrito").innerHTML = productosCarritoVista;
+    document.querySelector(".carrito-main").innerHTML = productosCarritoVista;
   });
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
@@ -169,5 +167,5 @@ productoscarrito.addEventListener("click", (e) => {
 const borrarProductoCarrito = (id) => {
   const prodIndex = carrito.findIndex((prod) => prod.Id === Number(id));
   carrito.splice(prodIndex, 1);
-  renderCarrito();
+  updateCarrito();
 };

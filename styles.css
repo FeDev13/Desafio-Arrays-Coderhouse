@@ -5,31 +5,36 @@
   }
 body {
   margin: px;
-  background-color: #ffb3d9;
+  background-image: url(../Flor_SkinArt/Assets/marmol-blanco1-25e84226bef8d6acce15923966408521-1024-1024.jpg);;
+}
+h5{
+  padding: 15px 10px;
 }
 #navigation{
   background-color: #ffb3d9;
 }
 
 #contenedorProductos {
-  background-color: #ffb3d9;
+  background-image: url(../Flor_SkinArt/Assets/marmol-blanco1-25e84226bef8d6acce15923966408521-1024-1024.jpg);
+  margin-top: 170px;
 }
-.productoCard {
-  max-width: 20%;
-  margin: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: palevioletred;
-  border-radius: 5px;
-  box-shadow: black;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#carrito{
+  margin-top: 150px;
+  margin-right: 150px;
 }
-.input {
+.cart {
 margin-top: 150px;
-background-color: #ffb3d9;
+margin-left: 150px;
+margin-bottom: 150px;
+background-color: palevioletred;
+display: flex;
+border-radius: 20px;
+border: blue;
+height: 50%;
+justify-content: space-around;
+}
+#submit{
+  border-radius: 10px;
 }
 .productoEnCarrito {
   border-left: 5px solid lightblue;
@@ -48,12 +53,72 @@ background-color: #ffb3d9;
   margin: 300px;
 }
 .carrito-contenedor{
-  margin: 8px;
-  width: 30px;
+  margin-left: 8px;
+  margin-top: 150px;
+  width: 500px;
+  border-radius: 8px;
+  border: black solid;
+  padding: 7px;
 }
 .panel {
   margin: 40px;
+  display: inline-block;  
 }
-.verCarrito {
-  display: block;
+.panel1 {
+  border-radius: 30px;
+  box-shadow: 7px 7px  #737373;
+}
+.card-img-top {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  }
+#addButton{
+  border-radius: 10px;
+  width: 8%;
+  background-color:  #BF8085
+}
+#mybtn{
+  border-radius: 25px;
+}
+.container {
+  display: grid;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+.column1 {
+  margin: 20px;
+}
+.column2 {
+  margin: 20px;
+}
+.column3{
+  margin: 20px;
+}
+.carrito-main {
+  overflow-y: auto;
+  max-height: 350px;
+}
+.subtotal {
+  padding: 5%;
+  text-align: right;
+}
+.checkout, .ver-carrito {
+  width: 95%;
+  text-align: center;
+  cursor: pointer;
+  background-color: black;
+  color: antiquewhite;
+  margin: 10px auto;
+  padding: 10px 15px;
+}
+.ver-carrito {
+  background-color: antiquewhite;
+  color: black;
+  border: 2px solid;
 }

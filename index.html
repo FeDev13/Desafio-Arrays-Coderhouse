@@ -91,32 +91,34 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Contacto</a>
               </li>
-              <div class="carrito-contenedor">
-              <i class="bi bi-cart"></i>
-              </div>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-              
-                
-                <div class="input">
-                  <input
-                    type="text"
-                    id="submit"
-                    placeholder="buscar producto"
-                  />
-                    <button id="addButton">Buscar</button>
-                </div>   
+    <div class="carrito-contenedor">
+      <div class="carrito-icono"><img src="../Flor_SkinArt/Assets/cart-fill.svg" alt="Bootstrap" width="32" height="32"></i></div>
+      <div class="ventana">
+        <h5>Productos en carrito</h3>
+        <div class="carrito-main">
+          <!--aca van elementos html dinamicos-->
+          
+        </div>
+        <div class="subtotal">subtotal: $0.00</div>
+        <div class="checkout">Checkout</div>
+        <div><button class = "ver-carrito" onclick="mostrarCarrito()">ver Carrito</button>  </div>
+      </div>
+    </div> 
+               
                     <main id="contenedorProductos">
 
                     
                     </main>
                         
                       
-                        <button onclick="mostrarCarrito()">Mostrar Carrito</button>   
-                        <div id="carrito" class="ocultarCarrito">
+                         
+                      
+                  
                           
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
