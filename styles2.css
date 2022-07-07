@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+  body {
+    margin: 100px;
+  }
+  .container {
+    margin: 150px 350px 150px 330px;
+    padding: 50px;
+    background-color: none;
+    width: 50%;
+    position: relative;
+    text-align: center;
+    
+  }
+  header {
+    text-align: center;
+  }
+  input {
+    border-radius: 10px;
+  }
+  
+  #imgheader {
+    display: inline-block;
+  }

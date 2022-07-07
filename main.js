@@ -56,15 +56,16 @@ const catalogo = [
 const nuevaCard = () => {
   let productosPanelVista = "";
   catalogo.forEach((producto) => {
+    let { Id, Nombre, Foto, Categoria, Stock, Precio } = producto;
     {
       productosPanelVista += `<div class="col-12 mb-2 col-md-4 col-sm-4 panel">
             <div class="card panel1" style="background-color:#ffe6e6">
             <div class="card-body">
-            <img id="fotoProducto" src="${producto.Foto}" class="card-img-top">
-            <h5 id="tituloProducto">${producto.Nombre}</h5>
-            <p id="descripcionProducto">${producto.Categoria}</p>
-            <p id="precioProducto">$${producto.Precio}</p>
-            <button data-id="${producto.Id}" id="mybtn" name="btnComprar" class="btn btn-dark">Comprar</button>
+            <img id="fotoProducto" src="${Foto}" class="card-img-top">
+            <h5 id="tituloProducto">${Nombre}</h5>
+            <p id="descripcionProducto">${Categoria}</p>
+            <p id="precioProducto">$${Precio}</p>
+            <button data-id="${Id}" id="mybtn" name="btnComprar" class="btn btn-dark">Comprar</button>
             </div>
             </div>
             </div>
@@ -102,7 +103,13 @@ const agregarProductoCarrito = (producto, id) => {
   if (carrito.some((producto) => producto.Id === id)) {
     const alertaBoton = document.getElementById("mybtn");
     alertaBoton.addEventListener("click", () => {
-      Swal.fire("Producto ya agregado");
+      Toastify({
+        text: "Producto agregado",
+        className: "info",
+        style: {
+          background: "linear-gradient(#ff3333)",
+        },
+      }).showToast();
     });
   } else if (productoCarrito === undefined) {
     carrito.push({
@@ -120,10 +127,6 @@ const agregarProductoCarrito = (producto, id) => {
     carrito[prodIndex].Cantidad = carrito[prodIndex].Cantidad + 1;
     carrito[prodIndex].Precio =
       carrito[prodIndex].Precio + productoEncontrado.Precio;
-    const alertaBoton = document.getElementById("mybtn");
-    alertaBoton.addEventListener("click", () => {
-      Swal.fire("Producto agregado");
-    });
   }
   console.log(carrito);
 };

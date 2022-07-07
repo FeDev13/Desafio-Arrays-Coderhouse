@@ -112,13 +112,15 @@ justify-content: space-around;
   width: 95%;
   text-align: center;
   cursor: pointer;
-  background-color: black;
+  background-color: #ff1a1a;
   color: antiquewhite;
   margin: 10px auto;
   padding: 10px 15px;
 }
 .ver-carrito {
-  background-color: antiquewhite;
-  color: black;
+  background-color: black;
+  color: white;
   border: 2px solid;
+  margin: 10px auto;
+  padding: 10px 15px;
 }
