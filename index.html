@@ -16,87 +16,66 @@
         <link href="styles.css" rel="stylesheet" />
     </head>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
-        <div class="container">
-          <a class="navbar-brand" href=""https://ibb.co/cJTr7Mg"">
-            <img src="https://i.ibb.co/jh4r1B6/logo-flor-skin-art-sin-fondo.png" height="100" alt="" />
-          </a>
-          
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto text-primary">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Servicios
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
+      
+          <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href=""https://ibb.co/cJTr7Mg"">
+              <img src="https://i.ibb.co/jh4r1B6/logo-flor-skin-art-sin-fondo.png" height="100" alt="" />
+            </a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+              <!-- Links -->
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Productos Skin care</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Servicios</a>
+                  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Estilismo en cejas</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Make Up</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Skin Care</a>
-                  </li>
-                  <li>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Productos
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a class="dropdown-item" href="#">Productos Skin Care</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Merchandising</a></li>
-                </ul>
-              </li>
-  
-              <li class="nav-item">
-                <a class="nav-link" href="#">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+                    <a class="dropdown-item" href="#">Make Up</a>
+                    <a class="dropdown-item" href="#">Skin care</a>
+                  </div>
+                </li>
+
+              </ul>
+              <!-- Links -->
+
+              <form class="form-inline">
+                <div class="md-form my-0 inputDiv">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" id="search">
+                  <button type="submit" class="btn search-input-submit" value="Buscar" aria-label="Buscar">
+                    <svg class="icon-inline icon-2x" viewBox="0 0 30.9 31.2"><path d="M30.2 28.6l-8-8a12.5 12.5 0 1 0-9.6 4.5 12 12 0 0 0 7.4-2.5l8 8c.3.3.7.4 1.1.4s.8-.1 1.1-.4c.6-.5.6-1.4 0-2zm-27.1-16c0-5.2 4.3-9.5 9.5-9.5s9.5 4.3 9.5 9.5-4.3 9.5-9.5 9.5-9.5-4.2-9.5-9.5z"></path></svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- Collapsible content -->
+          </nav>
     </header>
+    
+
+
     <div class="carrito-contenedor">
       <div class="carrito-icono"><img src="../Flor_SkinArt/Assets/cart-fill.svg" alt="Bootstrap" width="32" height="32"></i></div>
       <div class="ventana">

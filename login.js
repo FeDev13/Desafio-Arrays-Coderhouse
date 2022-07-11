@@ -1,6 +1,6 @@
 function entrar() {
-  let usuario = document.getElementById("user").value;
-  let pass = document.getElementById("password").value;
+  let usuario = document.getElementById("form2Example11").value;
+  let pass = document.getElementById("form2Example22").value;
   console.log(usuario, pass);
 
   usuario === "fede" && pass === "222"
@@ -8,7 +8,6 @@ function entrar() {
         icon: "success",
         title: "Hola!",
         text: "Bienvenido de vuelta Usuario!",
-        footer: '<a href="">Solucionar el problema?</a>',
       })(
         setTimeout(() => {
           window.location.href = "index.html";
@@ -18,6 +17,6 @@ function entrar() {
         icon: "error",
         title: "Error",
         text: "Los datos ingresados son incorrectos!",
-        footer: '<a href="">Solucionar el problema?</a>',
+        footer: '<a href="">Solucionar el problema</a>',
       });
 }
