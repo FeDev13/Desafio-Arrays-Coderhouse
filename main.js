@@ -3,17 +3,17 @@ const productoscarrito = document.querySelector(".carrito-main");
 const sumarCarrito = document.getElementById("carritonav");
 
 const traerCatalogo = async () => {
-  let respuesta = await fetch("./catalogo2.json");
+  let respuesta = await fetch("./catalogo.json");
   return respuesta.json();
 };
 
 const renderCards = async () => {
   let productos = await traerCatalogo();
   let productosPanelVista = "";
-  productos.array.forEach((producto) => {
+  productos.forEach((producto) => {
     let { Id, Nombre, Foto, Categoria, Stock, Precio } = producto;
     productosPanelVista += `<div class="col-12 mb-2 col-md-4 col-sm-4 panel">
-            <div class="card panel1" style="background-color:#ffe6e6">
+            <div class="card panel1" style="background-color:#BF8085">
             <div class="card-body">
             <img id="fotoProducto" src="${Foto}" class="card-img-top">
             <h5 id="tituloProducto">${Nombre}</h5>
@@ -29,42 +29,23 @@ const renderCards = async () => {
 };
 renderCards();
 
-/* //elemento HTML dinamico
-const nuevaCard = () => {
-  let productosPanelVista = "";
-  catalogo.forEach((producto) => {
-    let { Id, Nombre, Foto, Categoria, Stock, Precio } = producto;
-    {
-      productosPanelVista += `<div class="col-12 mb-2 col-md-4 col-sm-4 panel">
-            <div class="card panel1" style="background-color:#ffe6e6">
-            <div class="card-body">
-            <img id="fotoProducto" src="${Foto}" class="card-img-top">
-            <h5 id="tituloProducto">${Nombre}</h5>
-            <p id="descripcionProducto">${Categoria}</p>
-            <p id="precioProducto">$${Precio}</p>
-            <button data-id="${Id}" id="mybtn" name="btnComprar" class="btn btn-dark">Comprar</button>
-            </div>
-            </div>
-            </div>
-            `;
-    }
-  });
-  document.getElementById("contenedorProductos").innerHTML =
-    productosPanelVista;
-};
-nuevaCard();
-
 //evento click para agregar producto
 productosLista.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-dark")) {
-    agregarProductoCarrito(e.target.parentElement, Number(e.target.dataset.id));
+  if (e.target.id === "mybtn") {
+    guardarDatos(e.target.dataset.id);
   }
-  e.stopPropagation();
 });
+
+const guardarDatos = async (id) => {
+  let productos = await traerCatalogo();
+  let productoNuevo = productos.find(
+    (producto) => producto.Id === parseInt(id)
+  );
+};
 
 let carrito = [];
 
-// localStorage
+/*
 document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
