@@ -57,43 +57,35 @@
                     <a class="dropdown-item" href="#">Skin care</a>
                   </div>
                 </li>
+                <button type="submit" class="btn btn-light" value="Buscar" aria-label="Carrito" id="Cart">Carrito
+                </button>
+                <form class="form-inline">
+                  <div class="md-form my-0 inputDiv">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" id="search">
+                  </div>
+                </form>
 
               </ul>
-              <!-- Links -->
-
-              <form class="form-inline">
-                <div class="md-form my-0 inputDiv">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" id="search">
-                  <button type="submit" class="btn search-input-submit" value="Buscar" aria-label="Buscar">
-                    <svg class="icon-inline icon-2x" viewBox="0 0 30.9 31.2"><path d="M30.2 28.6l-8-8a12.5 12.5 0 1 0-9.6 4.5 12 12 0 0 0 7.4-2.5l8 8c.3.3.7.4 1.1.4s.8-.1 1.1-.4c.6-.5.6-1.4 0-2zm-27.1-16c0-5.2 4.3-9.5 9.5-9.5s9.5 4.3 9.5 9.5-4.3 9.5-9.5 9.5-9.5-4.2-9.5-9.5z"></path></svg>
-                  </button>
+              <!--ventana de carrito-->
+              <div class="cart-products" id="products-id">
+                <p class="close-btn">X</p>
+                <h3>Mi carrito</h3>
+                <div class="card-items">
+                    
+                        </div>
+                        <span>X</span>
+                    </div>
                 </div>
-              </form>
             </div>
-            <!-- Collapsible content -->
           </nav>
     </header>
     
-
-
-    <div class="carrito-contenedor">
-      <div class="carrito-icono"><img src="../Flor_SkinArt/Assets/cart-fill.svg" alt="Bootstrap" width="32" height="32"></i></div>
-      <div class="ventana">
-        <h5>Productos en carrito</h3>
-        <div class="carrito-main">
-          <!--aca van elementos html dinamicos-->
-          
-        </div>
-        <div class="subtotal">subtotal: $0.00</div>
-        <div class="checkout">Checkout</div>
-        <div><button class = "ver-carrito" onclick="mostrarCarrito()">ver Carrito</button>  </div>
-      </div>
-    </div> 
                
                     <main id="contenedorProductos">
                     <!--se agregan dinamicamente las cards-->
                     </main>
-                                  
+  
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

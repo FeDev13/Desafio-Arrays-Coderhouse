@@ -88,10 +88,11 @@ justify-content: space-around;
   border-radius: 25px;
 }
 .container {
-  display: grid;
-  background-color: #BF8085;
+    
+   background-color: none;
   
 }
+
 .cart-header {
   display: flex;
   justify-content: space-around;
@@ -137,16 +138,20 @@ justify-content: space-around;
   
 }
 .inputDiv {
-  margin-right: 300px;
+  margin-right: 200px;
 }
 #search {
   width: 200%;
 }
-
-.icon-inline {
-  display: inline-block;
-  font-size: inherit;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -.125em;
+#Cart {
+  margin-right: 50px;
+}
+.cart-products{
+  position: absolute!important;
+  top: 82px;
+  right: -18px;
+  background-color: #fff;
+  padding: 0 18px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  min-width: 290px;
 }
