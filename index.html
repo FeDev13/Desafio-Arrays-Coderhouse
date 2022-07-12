@@ -57,25 +57,17 @@
                     <a class="dropdown-item" href="#">Skin care</a>
                   </div>
                 </li>
-                <button type="submit" class="btn btn-light" value="Buscar" aria-label="Carrito" id="Cart">Carrito
+                <button type="submit" class="btn btn-light" value="Buscar" aria-label="Carrito" id="Cart" onmouseover="showCarrito()">Carrito
                 </button>
-                <form class="form-inline">
-                  <div class="md-form my-0 inputDiv">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" id="search">
-                  </div>
-                </form>
-
               </ul>
-              <!--ventana de carrito-->
-              <div class="cart-products" id="products-id">
-                <p class="close-btn">X</p>
-                <h3>Mi carrito</h3>
-                <div class="card-items">
-                    
-                        </div>
-                        <span>X</span>
-                    </div>
-                </div>
+              
+              <!--ventana de carrito oculta-->
+              <div id="cart-products">
+                <h2>Mi carrito</h2>
+                 <div id="div-vacio">
+                  <i class="bi bi-x-octagon-fill" id="cross" onclick="cerrarVentana()"></i>
+                 </div>
+                  <button class="btn btn-dark" id="botonFinalizar">Finalizar compra</button>
             </div>
           </nav>
     </header>
@@ -98,6 +90,14 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.all.min.js" integrity="sha256-NRwwtY2+HbkYyns4qhoHF9I40fpkeEM1DcsyzGi3lTs=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+      function showCarrito(x){
+            document.getElementById("cart-products").style.display = "block";
+        }
+        function cerrarVentana(){
+             document.getElementById("cart-products").style.display = "none";
+        }
+    </script>
     <script src="main.js"></script>       
   </body>
 </html>
