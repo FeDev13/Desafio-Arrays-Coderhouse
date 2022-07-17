@@ -19,8 +19,13 @@ h5{
 }
 header {
   background-color: #BF8085;
+  border-bottom: #737373 solid 2px;
+  
 }
 
+li {
+  margin: 10px;
+}
 
 #contenedorProductos {
   background-image: url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.dhluxuriousacabados.com%2Fwp-content%2Fuploads%2F2020%2F10%2FPietra-Marmol-Blanco-Calacatta-Vagli.jpg&imgrefurl=https%3A%2F%2Fwww.dhluxuriousacabados.com%2Fproducto%2Fpietra-marmol-blanco-calacatta-vagli-2%2F&tbnid=4_fGWgwCUp16MM&vet=12ahUKEwi238b_p_H4AhUgMrkGHWF-By0QMygregUIARDKAg..i&docid=z9To13iY6x61hM&w=1000&h=1000&q=marmol%20blanco&ved=2ahUKEwi238b_p_H4AhUgMrkGHWF-By0QMygregUIARDKAg);
@@ -31,16 +36,13 @@ header {
   margin-top: 150px;
   margin-right: 150px;
 }
-.cart {
-margin-top: 150px;
-margin-left: 150px;
-margin-bottom: 150px;
-background-color: palevioletred;
-display: flex;
-border-radius: 20px;
-border: blue;
-height: 50%;
-justify-content: space-around;
+#Cart {
+border-radius: 10px;
+width: auto;
+padding: 0 10px 0 10px;
+margin-left: 50px;
+height: 10%;
+margin-top: 18px;
 }
 
 .productoEnCarrito {
@@ -151,7 +153,7 @@ justify-content: space-around;
   position: absolute;
   top: 55%;
   left: 62%;
-  background-color: wheat;
+  background-color:	 #BF8085;;
   width: 36% !important;
   display: none;
 }
@@ -159,9 +161,18 @@ justify-content: space-around;
   display:grid;
   grid-template-columns: 3fr 6fr 1fr;
   padding:5% 2%;
-  border-bottom:solid 1px lightgray;  
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+
+  
 }
 #cross {
-  float: right;
-  margin-bottom: 8px;
+float: left;
+}
+#sumfinal {
+  width: 40%;
+}
+#sumaTotal {
+  float: right;  
 }

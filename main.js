@@ -3,6 +3,7 @@ const productoscarrito = document.querySelector(".carrito-main");
 const sumarCarrito = document.getElementById("carritonav");
 const renderDom = document.getElementById("div-vacio");
 const avisoDeCompra = document.getElementById("botonFinalizar");
+const sumaDeCompra = document.getElementById("sumaTotal");
 
 const traerCatalogo = async () => {
   let respuesta = await fetch("./catalogo.json");
@@ -11,13 +12,14 @@ const traerCatalogo = async () => {
 
 let carrito = [];
 
+//render de cards
 const renderCards = async () => {
-  let productos = await traerCatalogo();
+  const productos = await traerCatalogo();
   let productosPanelVista = "";
   productos.forEach((producto) => {
     let { Id, Nombre, Foto, Categoria, Stock, Precio } = producto;
     productosPanelVista += `<div class="col-12 mb-2 col-md-4 col-sm-4 panel">
-            <div class="card panel1" style="background-color:#BF8085">
+            <div class="card panel1" style="background-color:rgba(214, 169, 164, 0.1);">
             <div class="card-body">
             <img id="fotoProducto" src="${Foto}" class="card-img-top">
             <h5 id="tituloProducto">${Nombre}</h5>
@@ -57,18 +59,20 @@ const guardarDatos = async (id) => {
     recorrerLocalStorage();
   }
 };
-
+//suma productos al carrito
 const recorrerLocalStorage = () => {
   carrito.length = 0;
   for (let index = 0; index < localStorage.length; index++) {
     const element = localStorage.key(index);
     carrito.push(JSON.parse(localStorage.getItem(element)));
   }
-  renderCart();
+  sumaDeCompra.innerText = carrito.reduce((acc, prod) => acc + prod.Precio, 0);
+  renderCarrito();
   console.log(carrito);
 };
 
-const renderCart = () => {
+const renderCarrito = () => {
+  renderDom.innerText = "";
   if (carrito.length > 0) {
     carrito.forEach((producto) => {
       let { Id, Nombre, Foto, Categoria, Stock, Precio } = producto;
@@ -77,21 +81,15 @@ const renderCart = () => {
       nuevoDiv.innerHTML = `<div class="cart-item">
       <img src="${Foto}" class = "img-fluid"> 
       <div class="details">
-          <h5>${Nombre}</h3>
-          <button class="btn btn-danger">Quitar producto</button>
+          <h5>${Nombre}</h5>
+          <p>$${Precio}<p>
+          <button data-id = "${Id}" class="btn btn-danger" id = "botonQuitar">Quitar producto</button>
       </div>
       <div class="cancel"><i class="fas fa-window-close"></i></div>
    </div>
       `;
       renderDom.appendChild(nuevoDiv);
     });
-  } else {
-    renderDom.innerHTML += `<div id ="carrito-vacio" class= "card">
-                <div class="card-body">
-                <h5 id="tituloProducto">${Nombre}</h5>
-                <p class = "card-text"> No hay productos</p> 
-                </div>
-                `;
   }
 };
 
@@ -104,35 +102,17 @@ avisoDeCompra.addEventListener("click", () => {
   });
 });
 
-/*
-productoscarrito.addEventListener("click", (e) => {
+renderDom.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-danger")) {
     borrarProductoCarrito(Number(e.target.dataset.id));
   }
   e.stopPropagation();
 });
 
+//borra producto del carrito y localStorage
 const borrarProductoCarrito = (id) => {
   const prodIndex = carrito.findIndex((prod) => prod.Id === Number(id));
   carrito.splice(prodIndex, 1);
-  updateCarrito();
+  renderCarrito();
+  localStorage.clear();
 };
-
-function nuevoDiv() {
-  let sumarCarrito = document.getElementById("carritonav");
-  let newDiv = document.createElement("div");
-  newDiv.classList.add("div-styled");
-  newDiv.innerHTML = `<h5>Productos en carrito</h3>
-  <div class="carrito-main">
-    <!--aca van elementos html dinamicos-->
-    
-  </div>
-  <div class="subtotal">subtotal: $0.00</div>
-  <div class="checkout">Checkout</div>
-  <div><button class = "ver-carrito" onclick="mostrarCarrito()">ver Carrito</button>  </div>
-</div>
-</div> 
- `;
-  let headers = document.getElementsByTagName("header")[0].appendChild(newDiv);
-}
- */
