@@ -86,7 +86,6 @@ const renderCarrito = () => {
           <p>$${Precio}<p>
           <button data-id = "${Id}" class="btn btn-danger" id = "botonQuitar">Quitar producto</button>
       </div>
-      <div class="cancel"><i class="fas fa-window-close"></i></div>
    </div>
       `;
       renderDom.appendChild(nuevoDiv);

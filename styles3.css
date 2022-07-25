@@ -17,5 +17,11 @@ a {
     background-color: #BF8085;
 }
 .cart-item {
-    background-color: #BF8085;
+    display: flex;
+    width: 50%;
+}
+.table {
+    text-align: left; 
+    justify-content: space-around;
+    border: thick black;
 }
