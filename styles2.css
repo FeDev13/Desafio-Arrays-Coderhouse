@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+section {
+  background-color: none;
+}
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #fccb90;
@@ -22,4 +30,8 @@
   }
   input{
     margin-top: 3rem;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }

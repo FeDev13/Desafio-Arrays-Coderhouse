@@ -13,6 +13,7 @@ h2 {
   font-weight:600;
   font-size: 20px;
    text-align: center;
+   margin-top: 20px;
 }
 h5{
   padding: 15px 10px;
@@ -153,9 +154,10 @@ margin-top: 18px;
   position: absolute;
   top: 55%;
   left: 62%;
-  background-color:	 #BF8085;;
+  background-color:	 #BF8085;
   width: 36% !important;
   display: none;
+  z-index: 2;
 }
 .cart-item{
   display:grid;
@@ -164,8 +166,6 @@ margin-top: 18px;
   background-color: white;
   border-radius: 8px;
   text-align: center;
-
-  
 }
 #cross {
 float: left;
@@ -175,4 +175,8 @@ float: left;
 }
 #sumaTotal {
   float: right;  
+}
+.bg-image {
+  z-index: 1;
+  height: 50%;
 }

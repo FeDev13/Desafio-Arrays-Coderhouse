@@ -71,6 +71,7 @@ const recorrerLocalStorage = () => {
   console.log(carrito);
 };
 
+//pinta el carrito
 const renderCarrito = () => {
   renderDom.innerText = "";
   if (carrito.length > 0) {
@@ -93,15 +94,20 @@ const renderCarrito = () => {
   }
 };
 
-//pop up avisando la compra realizada
-avisoDeCompra.addEventListener("click", () => {
-  Swal.fire({
-    icon: "success",
-    title: "La operacion ha sido realizada!",
-    text: "Gracias por su compra!",
-  });
-});
+//se va al checkout si el carrito tiene productos
 
+const checkOut = () => {
+  carrito.length > 0
+    ? (window.location.href = "checkout.html")
+    : Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "su carrito esta vacio",
+      });
+};
+avisoDeCompra.addEventListener("click", checkOut);
+
+//borra producto del carrito y localStorage
 renderDom.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-danger")) {
     borrarProductoCarrito(Number(e.target.dataset.id));
@@ -109,10 +115,11 @@ renderDom.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-//borra producto del carrito y localStorage
 const borrarProductoCarrito = (id) => {
   const prodIndex = carrito.findIndex((prod) => prod.Id === Number(id));
   carrito.splice(prodIndex, 1);
   renderCarrito();
   localStorage.clear();
 };
+
+//hacer variable localStorage formulario y encontrar la otra (posiblemente .key)!!//
